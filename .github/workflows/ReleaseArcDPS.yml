@@ -23,14 +23,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Create Release Folder
-        run: rsync -av --exclude='.git/' --exclude='.github/*' --exclude='.gitignore' . ./release
-      - name: Switch to Release Folder
-        run: |
-          cd release
-          ls -la
-      - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@1.26.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: true
+      - name: Zip Folder
+        run: zip -r release.zip . -x ".git/*" ".github/*" "AutoClicker/*"
+      - name: Release to Github
+        run: echo "Release"
