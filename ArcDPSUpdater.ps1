@@ -12,23 +12,16 @@ function Write-Log {
     Write-Host "$timestamp " -NoNewline
     
     switch($Status) {
-        "DISP" { 
-            Write-Host -ForegroundColor Green "[OK] " -NoNewline
-            }
         "INFO" { 
-            Write-Host -ForegroundColor Green "[OK] " -NoNewline
             Add-Content $LogFile "$timestamp [OK] $Message"
             }
         "WARN" { 
-            Write-Host -ForegroundColor Yellow "[WARNING] " -NoNewline
             Add-Content $LogFile "$timestamp [WARNING] $Message"
             } 
         "ERROR" { 
-            Write-Host -ForegroundColor Red "[ERROR] " -NoNewline
             Add-Content $LogFile "$timestamp [ERROR] $Message"
             } 
-         default { 
-            Write-Host -ForegroundColor Green "[$Status] " -NoNewline
+         default {
             Add-Content $LogFile "$timestamp [$Status] $Message"
             }
         }
@@ -43,13 +36,13 @@ $LogWarning = "WARN"
 $LogDisplay = "DISP"
 
 if(Test-Path $LogFile) { Clear-Content $LogFile }
-Write-Log "--------------------------------------------------------------" $LogInfo
-Write-Log "                        _____ __    ____                      " $LogInfo
-Write-Log "                       / ___// /   / __ \                     " $LogInfo
-Write-Log "                       \__ \/ /   / /_/ /                     " $LogInfo
-Write-Log "                      ___/ / /___/ ____/                      " $LogInfo
-Write-Log "                     /____/_____/_/                           " $LogInfo
-Write-Log "--------------------------------------------------------------" $LogInfo
+Write-Log "--------------------------------------------------------------" 
+Write-Log "                        _____ __    ____                      " 
+Write-Log "                       / ___// /   / __ \                     " 
+Write-Log "                       \__ \/ /   / /_/ /                     " 
+Write-Log "                      ___/ / /___/ ____/                      " 
+Write-Log "                     /____/_____/_/                           " 
+Write-Log "--------------------------------------------------------------" 
 
 Write-Log "Initializing Updater" $LogInfo
 
