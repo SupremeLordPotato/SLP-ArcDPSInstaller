@@ -1,10 +1,20 @@
 # SLP-ArcDPSInstaller
 A script to install ArcDPS and automatically update it at logon.
 ## Using the script
-1. First, extract the files
-2. In the folder with the extracted files, right click on ArcDPSInstaller.ps1
-3. In the context menu, click on run with powershell.
-4. follow the instructions on screen
+1. First and foremost, you need to temporarily allow Powershell scripts to be run from your pc.
+2. In the start menu, search for "Powershell"
+3. Right click on it and left click on Run as administrator
+4. In the powershell window, paste the following command: set-executionPolicy bypass
+5. Confirm with "A" and press enter.
+
+6. Next, extract the files
+7. In the folder with the extracted files, right click on ArcDPSInstaller.ps1
+8. In the context menu, click on run with powershell.
+9. follow the instructions on screen
+
+10. when the installation has finished, turn the execution-policy back on
+11. go back to the administrator Powershell window and type: set-executionPolicy restricted
+
 ## What it does
 This script has 2 parts, 1 is the installation of ArcDPS and 2 is the installation of the update mechanism.##
 ### 1. Installing ArcDPS
